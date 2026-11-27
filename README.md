@@ -56,7 +56,8 @@ evidence/                原始日志（pytest、变异自证、一键复跑）
 - 一键复跑：SELFTEST: PASS
 - MANIFEST：全部文件 sha256sum -c 全 OK（MANIFEST 自身与自测输出日志
   evidence/selftest-setup-sh-20261127.log 不进清单，见下）
-- 全新克隆验证：HEAD 待推送后补记
+- 全新克隆验证：HEAD 3f6566fcae77ad3eb2a0338c277bd4745f1e9db3 上 bash setup.sh 实测 SELFTEST: PASS
+  （2245-clone-verify-20261127.log，克隆目录在 ~/.tmp-2245-clone-verify，验完已删）
 
 样例简报 2026-W45：收录 12 条（补贴申报 3、资质认定 3、税收优惠 2、行业动态 2、
 活动通知 2），剔除 5 条（X01 已过期、X02 缺少原文链接、X03 已被以往期次收录过、
