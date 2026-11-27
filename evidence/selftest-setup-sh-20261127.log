@@ -1,0 +1,60 @@
+PY=.venv/bin/python (Python 3.12.3)
+TEST_PY=.venv/bin/python (pytest 9.2.0)
+=== 1/4 生成虚构样例简报（两种版本 × 两种格式）===
+wrote brief-2026-W45-staff.md (6257 bytes)
+wrote brief-2026-W45-staff.pdf (113690 bytes)
+wrote brief-2026-W45-public.md (5972 bytes)
+wrote brief-2026-W45-public.pdf (110671 bytes)
+brief 2026-W45: 12 items included, 5 excluded
+excluded X01: 已过期
+excluded X02: 缺少原文链接
+excluded X03: 已被以往期次收录过
+excluded X04: 未审批通过
+excluded X05: 审批日期不在收录窗口内
+=== 2/4 自测 pytest ===
+..........................................                               [100%]
+42 passed in 21.06s
+=== 3/4 变异自证（应 MUTATION CHECK: PASS）===
+=== A 相：原代码 pytest ===
+..........................................                               [100%]
+42 passed in 20.07s
+
+
+=== B 相 M1：变异 src/intel_brief/rules.py ===
+失败测试：['test_already_included_rejected', 'test_approved_outside_window_rejected', 'test_empty_link_rejected', 'test_excluded_ids_absent_from_all_sections', 'test_expired_item_rejected', 'test_five_ineligible_items_excluded_with_reasons', 'test_missing_link_rejected', 'test_not_approved_rejected']
+M1 变红，目标断言失败，符合预期
+=== B 相 M2：变异 src/intel_brief/export.py ===
+失败测试：['test_public_md_contains_no_member_name', 'test_public_md_has_no_related_members_line', 'test_public_pdf_text_contains_no_member_name']
+M2 变红，目标断言失败，符合预期
+=== C 相：原文件未变 + 重跑 pytest ===
+..........................................                               [100%]
+42 passed in 18.95s
+
+MUTATION CHECK: PASS
+=== 4/4 核对 MANIFEST ===
+.github/workflows/ci.yml: OK
+README.md: OK
+data/sample_items.json: OK
+evidence/mutation-20261127.log: OK
+evidence/pytest-20261127.log: OK
+examples/brief-2026-W45-public.md: OK
+examples/brief-2026-W45-public.pdf: OK
+examples/brief-2026-W45-staff.md: OK
+examples/brief-2026-W45-staff.pdf: OK
+requirements.txt: OK
+scripts/generate_sample.py: OK
+scripts/make_manifest.py: OK
+scripts/mutation_check.py: OK
+setup.sh: OK
+src/intel_brief/__init__.py: OK
+src/intel_brief/brief.py: OK
+src/intel_brief/export.py: OK
+src/intel_brief/models.py: OK
+src/intel_brief/rules.py: OK
+tests/conftest.py: OK
+tests/test_ac1_sections_sort.py: OK
+tests/test_ac2_public_no_members.py: OK
+tests/test_ac3_exclusion.py: OK
+tests/test_ac4_exports.py: OK
+tests/test_brief.py: OK
+SELFTEST: PASS

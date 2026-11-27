@@ -1,0 +1,16 @@
+=== A 相：原代码 pytest ===
+..........................................                               [100%]
+42 passed in 20.23s
+
+
+=== B 相 M1：变异 src/intel_brief/rules.py ===
+失败测试：['test_already_included_rejected', 'test_approved_outside_window_rejected', 'test_empty_link_rejected', 'test_excluded_ids_absent_from_all_sections', 'test_expired_item_rejected', 'test_five_ineligible_items_excluded_with_reasons', 'test_missing_link_rejected', 'test_not_approved_rejected']
+M1 变红，目标断言失败，符合预期
+=== B 相 M2：变异 src/intel_brief/export.py ===
+失败测试：['test_public_md_contains_no_member_name', 'test_public_md_has_no_related_members_line', 'test_public_pdf_text_contains_no_member_name']
+M2 变红，目标断言失败，符合预期
+=== C 相：原文件未变 + 重跑 pytest ===
+..........................................                               [100%]
+42 passed in 20.61s
+
+MUTATION CHECK: PASS
